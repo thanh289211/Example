@@ -4,6 +4,7 @@ import com.example.base.entities.UserEntity;
 import com.example.base.repositories.UserRepository;
 import com.example.base.request.PageRequest;
 import com.example.base.request.SearchUserRequest;
+import com.example.base.request.UserRequest;
 import lombok.AllArgsConstructor;
 import org.apache.catalina.User;
 import org.springframework.data.domain.Page;
@@ -36,5 +37,26 @@ public class UserService{
         return new PageImpl<>(results, pageable, list.getTotalElements());
     }
 
+    public UserEntity insert(UserRequest userRequest){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setName(userEntity.getName());
+        userEntity.setPhoneNumber(userRequest.getPhoneNumber());
+        userEntity.setAddress(userRequest.getAddress());
+        userRepository.save(userEntity);
+        return userEntity;
+    }
 
+    public UserEntity update(UserRequest userRequest, long id){
+        UserEntity userEntity = new UserEntity();
+        userEntity.setId(id);
+        userEntity.setName(userEntity.getName());
+        userEntity.setPhoneNumber(userRequest.getPhoneNumber());
+        userEntity.setAddress(userRequest.getAddress());
+        userRepository.save(userEntity);
+        return userEntity;
+    }
+
+    public void delete(long id){
+        userRepository.deleteById(id);
+    }
 }
