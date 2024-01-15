@@ -1,6 +1,7 @@
 package com.example.base.controllers;
 
 import com.example.base.request.PageRequest;
+import com.example.base.request.SearchUserRequest;
 import com.example.base.response.BaseResponse;
 import com.example.base.services.UserService;
 import lombok.AllArgsConstructor;
@@ -20,5 +21,10 @@ public class UserController {
     @GetMapping("getAll")
     public ResponseEntity<?> listAll (@RequestBody PageRequest pageRequest){
         return new ResponseEntity<>(BaseResponse.success(userService.listAllByPage(pageRequest)), HttpStatus.OK);
+    }
+
+    @GetMapping("search")
+    public ResponseEntity<?> search(@RequestBody SearchUserRequest searchUserRequest){
+        return new ResponseEntity<>(BaseResponse.success(userService.search(searchUserRequest)), HttpStatus.OK);
     }
 }
