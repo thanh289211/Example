@@ -43,4 +43,9 @@ public class UserController {
         userService.delete(id);
         return new ResponseEntity<>(BaseResponse.success(""),HttpStatus.OK);
     }
+
+    @GetMapping("get")
+    public ResponseEntity<?> getById(@RequestParam long id){
+        return new ResponseEntity<>(BaseResponse.success(userService.getUserById(id)), HttpStatus.OK);
+    }
 }
