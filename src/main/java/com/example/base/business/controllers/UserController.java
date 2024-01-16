@@ -18,12 +18,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("getAll")
+    @PostMapping("getAll")
     public ResponseEntity<?> listAll (@RequestBody PageRequest pageRequest){
         return new ResponseEntity<>(BaseResponse.success(userService.listAllByPage(pageRequest)), HttpStatus.OK);
     }
 
-    @GetMapping("search")
+    @PostMapping("search")
     public ResponseEntity<?> search(@RequestBody SearchUserRequest searchUserRequest){
         return new ResponseEntity<>(BaseResponse.success(userService.search(searchUserRequest)), HttpStatus.OK);
     }
