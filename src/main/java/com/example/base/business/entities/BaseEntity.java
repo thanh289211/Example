@@ -17,7 +17,7 @@ public class BaseEntity extends AuditTable{
     private String clientId;
 
     @Column(name = "status")
-    private Integer status;
+    private Integer status = 1;
 
 }
 

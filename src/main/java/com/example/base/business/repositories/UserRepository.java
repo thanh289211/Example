@@ -9,11 +9,14 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserEntity, Long> {
+    @Query("SELECT distinct e FROM UserEntity e " +
+            "WHERE e.status != 0")
     Page<UserEntity> findAll (Pageable pageable);
     long count();
     @Query("SELECT distinct e FROM UserEntity e " +
-            "WHERE e.name like :value "  +
+            "WHERE (e.name like :value "  +
             "OR e.phoneNumber like :value " +
-            "OR e.address like :value")
+            "OR e.address like :value)" +
+            "AND e.status != 0")
     Page<UserEntity> search (String value, Pageable pageable);
 }

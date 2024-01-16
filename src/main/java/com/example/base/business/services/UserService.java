@@ -57,10 +57,15 @@ public class UserService{
 
     public void delete(long id){
         UserEntity userEntity = findUserById(id);
-        userRepository.delete(userEntity);
+        userEntity.setStatus(0);
+        userRepository.save(userEntity);
     }
 
-    public UserEntity findUserById(long id){
+    public UserResponse getUserById(long id){
+        return UserResponse.of(findUserById(id));
+    }
+
+    private UserEntity findUserById(long id){
         return userRepository.findById(id).orElseThrow(() -> new NotFoundException("user not found"));
     }
 }
