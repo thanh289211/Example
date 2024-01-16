@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    @PostMapping("getAll")
+    @PostMapping("list")
     public ResponseEntity<?> listAll (@RequestBody PageRequest pageRequest){
         return new ResponseEntity<>(BaseResponse.success(userService.listAllByPage(pageRequest)), HttpStatus.OK);
     }
@@ -28,24 +28,24 @@ public class UserController {
         return new ResponseEntity<>(BaseResponse.success(userService.search(searchUserRequest)), HttpStatus.OK);
     }
 
-    @PostMapping("insert")
+    @PostMapping("save")
     public ResponseEntity<?> insert(@RequestBody UserRequest userRequest){
         return new ResponseEntity<>(BaseResponse.success(userService.insert(userRequest)), HttpStatus.OK);
     }
 
-    @PutMapping("update")
-    public ResponseEntity<?> update(@RequestBody UserRequest userRequest, @RequestParam long id){
+    @PutMapping("{id}")
+    public ResponseEntity<?> update(@RequestBody UserRequest userRequest, @PathVariable long id){
         return new ResponseEntity<>(BaseResponse.success(userService.update(userRequest, id)), HttpStatus.OK);
     }
 
-    @DeleteMapping("delete")
-    public ResponseEntity<?> delete(@RequestParam long id){
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> delete(@PathVariable long id){
         userService.delete(id);
         return new ResponseEntity<>(BaseResponse.success(""),HttpStatus.OK);
     }
 
-    @GetMapping("get")
-    public ResponseEntity<?> getById(@RequestParam long id){
+    @GetMapping("{id}")
+    public ResponseEntity<?> getById(@PathVariable long id){
         return new ResponseEntity<>(BaseResponse.success(userService.getUserById(id)), HttpStatus.OK);
     }
 }

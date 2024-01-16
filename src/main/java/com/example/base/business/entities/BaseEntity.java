@@ -1,6 +1,7 @@
 package com.example.base.business.entities;
 
 
+import com.example.base.helpers.constants.BusinessConstants;
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
@@ -17,7 +18,7 @@ public class BaseEntity extends AuditTable{
     private String clientId;
 
     @Column(name = "status")
-    private Integer status = 1;
+    private Integer status = BusinessConstants.Status.ACTIVE;
 
 }
 
