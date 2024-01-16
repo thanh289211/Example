@@ -1,5 +1,6 @@
-package com.example.base.request;
+package com.example.base.business.request;
 
+import com.example.base.helpers.constants.SystemConstants;
 import lombok.Data;
 import lombok.ToString;
 
@@ -14,6 +15,6 @@ public class BaseRequest {
 
     private String requestId = UUID.randomUUID().toString();
 
-    private String requestDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+    private String requestDate = new SimpleDateFormat(SystemConstants.Date.BASE_DATE_FULL_TIME_FORMAT).format(new Date());
 }
 

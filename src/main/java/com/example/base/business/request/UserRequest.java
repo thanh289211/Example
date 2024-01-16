@@ -1,4 +1,4 @@
-package com.example.base.request;
+package com.example.base.business.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

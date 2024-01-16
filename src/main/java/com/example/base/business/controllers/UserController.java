@@ -1,10 +1,11 @@
-package com.example.base.controllers;
+package com.example.base.business.controllers;
 
-import com.example.base.request.PageRequest;
-import com.example.base.request.SearchUserRequest;
-import com.example.base.request.UserRequest;
-import com.example.base.response.BaseResponse;
-import com.example.base.services.UserService;
+import com.example.base.business.request.PageRequest;
+import com.example.base.business.request.SearchUserRequest;
+import com.example.base.business.request.UserRequest;
+import com.example.base.business.response.BaseResponse;
+import com.example.base.business.services.UserService;
+import com.example.base.core.configurations.ResourcePath;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @AllArgsConstructor
-@RequestMapping("/v1/user")
+@RequestMapping(ResourcePath.BASE + "/user")
 public class UserController {
     private final UserService userService;
 

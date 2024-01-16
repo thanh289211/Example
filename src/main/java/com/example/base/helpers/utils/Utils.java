@@ -1,4 +1,4 @@
-package com.example.base.helpers;
+package com.example.base.helpers.utils;
 
 import java.sql.Timestamp;
 import java.util.Calendar;

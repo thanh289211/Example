@@ -1,9 +1,9 @@
-package com.example.base.response;
+package com.example.base.business.response;
 
-import com.example.base.helpers.GsonParserUtils;
-import com.example.base.helpers.IResponseStatus;
-import com.example.base.helpers.ResponseStatus;
-import com.example.base.request.BaseRequest;
+import com.example.base.helpers.utils.GsonParserUtils;
+import com.example.base.helpers.enums.IResponseStatus;
+import com.example.base.helpers.enums.ResponseStatus;
+import com.example.base.business.request.BaseRequest;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,7 +18,7 @@ import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.List;
 
-import static com.example.base.helpers.Utils.createTimestamp;
+import static com.example.base.helpers.utils.Utils.createTimestamp;
 
 @Data
 @Builder

@@ -1,4 +1,4 @@
-package com.example.base.entities;
+package com.example.base.business.entities;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -9,12 +9,14 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserEntity {
+public class UserEntity extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+    @Column(name = "name")
     private String name;
     @Column(name = "phone_number")
     private String phoneNumber;
+    @Column(name = "address")
     private String address;
 }

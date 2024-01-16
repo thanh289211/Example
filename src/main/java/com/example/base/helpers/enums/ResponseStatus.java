@@ -1,6 +1,8 @@
-package com.example.base.helpers;
+package com.example.base.helpers.enums;
 
-public enum ResponseStatus implements IResponseStatus{
+import com.example.base.helpers.enums.IResponseStatus;
+
+public enum ResponseStatus implements IResponseStatus {
     SUCCESS("Success"),
     ACCESS_DENIED("Access Denied"),
     NOT_FOUND("Not found"),

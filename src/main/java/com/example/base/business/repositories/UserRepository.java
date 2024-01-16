@@ -1,7 +1,6 @@
-package com.example.base.repositories;
+package com.example.base.business.repositories;
 
-import com.example.base.entities.UserEntity;
-import org.apache.catalina.User;
+import com.example.base.business.entities.UserEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
