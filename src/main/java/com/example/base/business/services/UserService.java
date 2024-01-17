@@ -30,7 +30,7 @@ public class UserService{
     }
 
     public Page<UserResponse> search(SearchUserRequest request){
-        org.springframework.data.domain.PageRequest pageable = org.springframework.data.domain.PageRequest.of(request.getPageNumber(), request.getPageSize(), Sort.by("id"));
+        org.springframework.data.domain.PageRequest pageable = org.springframework.data.domain.PageRequest.of(request.getPageNumber() - 1 , request.getPageSize(), Sort.by("id"));
         Page<UserEntity> list = userRepository.search(request.getValue(), pageable);
         List<UserResponse> results = list.stream().map(UserResponse::of)
                 .collect(Collectors.toList());
